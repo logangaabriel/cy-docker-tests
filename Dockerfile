@@ -2,10 +2,10 @@ FROM cypress/factory
 
 WORKDIR /app
 
-COPY package.json /app
+COPY package.json package-lock.json /app/
 
-RUN npm install
+RUN npm ci --silent
 
 COPY . .
 
-CMD [ "npm", "run", "cy:run" ]
+CMD ["npm", "run", "cy:run"]
